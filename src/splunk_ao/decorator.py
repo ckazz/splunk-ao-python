@@ -1349,9 +1349,10 @@ class SplunkAODecorator:
 
     def flush_all(self) -> None:
         """
-        Upload all captured traces under all contexts to Splunk AO.
+        Drain the OTLP export queue for all active logger contexts.
 
-        This method flushes all traces regardless of project or log stream.
+        This method drains all loggers regardless of project or agent stream.
+        It does not conclude open spans or upload traces directly.
         """
         SplunkAOLoggerSingleton().flush_all()
 
