@@ -1309,9 +1309,10 @@ class SplunkAODecorator:
         on_error: Callable[[Exception], None] | None = None,
     ) -> None:
         """
-        Upload all captured traces under a project and agent stream context to Splunk AO.
+        Drain the OTLP export queue for a specific project and agent stream context.
 
-        If no project or agent stream is provided, then the currently initialized context is used.
+        Does not conclude open spans or upload traces directly. If no project or
+        agent stream is provided, the currently initialized context is used.
 
         Parameters
         ----------
