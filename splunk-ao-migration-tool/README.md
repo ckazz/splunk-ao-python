@@ -391,7 +391,7 @@ logger = GalileoLogger(project="my-project", log_stream="production")
 logger.start_session(name="my-session")
 logger.add_llm_span(input="Hello", output="Hi", model="gpt-4")
 logger.conclude()   # closes current span; no flush kwarg
-logger.flush()      # uploads traces
+logger.flush()      # drain the OTLP export queue
 ```
 
 ### After (splunk-ao)
@@ -418,7 +418,7 @@ logger = SplunkAOLogger(project="my-project", agent_stream="production")
 logger.start_session(name="my-session")
 logger.add_llm_span(input="Hello", output="Hi", model="gpt-4")
 logger.conclude()   # closes current span; no flush kwarg
-logger.flush()      # uploads traces
+logger.flush()      # drain the OTLP export queue
 ```
 
 ---
