@@ -27,7 +27,7 @@ logger.add_llm_span(input=[{"role": "system", "content": input_prompt}], output=
 # Conclude the trace with the final output
 logger.conclude(output_answer)
 
-# Flush the trace to Splunk AO
+# Drain the OTLP export queue
 logger.flush()
 
 # Show link to Splunk AO log stream

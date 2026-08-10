@@ -29,7 +29,7 @@ logger.add_llm_span(
 # Conclude the trace with the final output
 logger.conclude(output="Hello, this is a test", duration_ns=1000)
 
-# Flush the trace to Splunk AO
+# Drain the OTLP export queue
 logger.flush()
 
 
